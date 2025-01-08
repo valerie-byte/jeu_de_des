@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet"> 
+    <title>jeu navigateur web</title>
+    
+</head>
+<!-- bloc général -->
+<body class="container" >
+    
+<!-- bloc new gamenew game -->
+    <header class=" d-flex justify-content-center " >
+        <image type="button" src="icon_addcircle.svg" id="icon_addcircle" height=20 class=" ">
+    </image>
+        <p class=" text-uppercase" id="new_game">new game</p>
+    </header>
+
+<!-- bloc player1, lancer dé et player2 -->
+    <div class="row">
+
+ <!--bloc player 1 -->
+        <div class="col text-center">
+            <h1 id="player1" class="col text-uppercase">player 1
+            <img src="icon_point.svg">
+            </h1> 
+            <h2 id="global_player1" class="col">0</h2>
+        </div>
+
+<!--bloc lancer dé  -->
+        <div class="col text-center">
+            <diV id="lancer_dé" class="col-4">
+            <img src="de2.PNG"> 
+           </diV>
+        </div> 
+
+<!-- bloc player 2 -->
+        <div class="col text-center"> 
+            <h1 id="player2" class="col text-uppercase">player 2
+            <img src="icon_point.svg" id="icon_point" >
+            </h1>
+            <h2 id="global_player2" class="col">0</h2>
+        </div>
+
+    </div>
+
+<!-- bloc current roll dice et current2 -->
+    <div class="row" >
+
+<!-- bloc current 1 -->
+        <div class="col text-center" id="bloc_current1">
+            <h3 id="current1" class="text-uppercase col" >current</h3>
+            <p id="round_player1" class="col">11</p>
+         </div>
+
+<!-- bloc roll dice -->
+         <div class="col text-center">
+            <h4 id="rolldice" class="col text-uppercase">
+            <input type="image" src="icon_rolldice.svg" id="icon_rolldice" >
+            roll dice
+            </h4> 
+            <h4 id="hold" class="col text-uppercase">
+            <input type="image" src="icon_placeitem.svg" id="icon_hold">
+             hold </h4>
+        </div>
+
+<!-- bloc current2 -->
+        <div class="col text-center" id="bloc_current2" >
+            <h3 id="current2" class="text-uppercase col">current</h3>
+            <p id="round_player2" class="">5</p>
+        </div>
+
+    </div>   
+  
+
+</body>
+<script src="script.js"></script>
+<script src="bootstrap.bundle.min.js"></script>
+</html>
