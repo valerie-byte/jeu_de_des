@@ -1,74 +1,54 @@
-// // mettre à zéro les valeurs globaux global_player1 et global_player2 =0
-// const icon_player2 = document.getElementById("icon_point")
-
-// const global_player1 = document.getElementById("global_player1");
-// const global_player2 = document.getElementById("global_player2");
-
-
-
-// function resets_globaux() {
-//     icon_player2
-//     // new_party.style.background = "blue";
-// }
-
-
-// new_party.addEventListener("click", resets_globaux);
-
-
-
-// ********************************************
 
 // function disable () { 
 //     // permet de bloquer le bouton
 //     document.getElementById('icon_rolldice').disabled=true;
 // }
 
+let current_score1 = 0;
  // on récupère le bouton roll dice
- const roll_dice = document.getElementById("icon_rolldice")
+const roll_dice = document.getElementById("icon_rolldice")
+//  on récupère le bouton hold
+const btn_hold = document.getElementById("icon_hold")
+// récupérer l'emplacement player1
+let roundplayer1 = document.getElementById("round_player1")
 
 // création d'un nombre aléatoire entre 1 et 6
 function random_number() {
   return Math.floor(Math.random()*6 +1);
-    }
-
-// fonction pour lancer et afficher un dé
-function img_de () {
-    
-    let roll = random_number();
-    
-    let de = document.createElement("img");
-    if (roll ===1 ){
-        de.setAttribute("src", "dé1.png");
-    }
-    else if (roll === 2 ) {
-        de.setAttribute("src", "de2.png");
-    }
-    else if (roll === 3 ) {
-        de.setAttribute("src", "de3.png");
-    }
-    else if (roll === 4 ) {
-        de.setAttribute("src", "de4.png");
-    }
-    else if (roll === 5 ) {
-        de.setAttribute("src", "de5.png");
-    }
-    else if (roll === 6 ) {
-        de.setAttribute("src", "de6.png");
-    }
-
-    // on met l'élément crée dans l'id lancer_dé
-    document.getElementById('lancer_dé').appendChild(de);
-  
-
 }
 
-// exécute la fonction en cliquant sur icone roll dice
-roll_dice.addEventListener("click", img_de, false)
+// // fonction pour afficher dans le player1
+//  affich_player1 = (roll) => {
+//     //l'afficher dans l'emplacement
+//     roundplayer1.textContent = roll;
+//  }
 
-// // fonction pour effacer le dé affiché
-// function erase_de () {
-//     let affich = document.getElementById("de");
-//     affich.setAttribute("src", "defeaut.png");
+// fonction pour lancer et afficher un dé
+ const lancer_dé = () => {
+    let roll = random_number();
     
-// }
+    let nomfichier = "de" + roll +".png";
+    // récupère l'emplacement du dé
+    const lancer_dé = document.querySelector("#lancer_dé");
+    lancer_dé.setAttribute("src", nomfichier);
+    // console.log(nomfichier);
+    current_score1 = roll + current_score1;
+    // console.log(current_score1);
+    roundplayer1.textContent = current_score1;
+ }
+
+ const fonction_hold = () => {    
+    // récupérer emplacement de global player1
+    let globalplayer1 = document.getElementById("global_player1");
+    // mettre valeur current player1 dans globalplayer1;
+    globalplayer1.textContent = roundplayer1.textContent;
+ }
+
+
+// exécute la fonction en cliquant sur icone roll dice
+roll_dice.addEventListener("click", lancer_dé);
+
+// on exécute fonction mettre dans global quand on appuie sur icone hold
+btn_hold.addEventListener("click", fonction_hold);
+
 
